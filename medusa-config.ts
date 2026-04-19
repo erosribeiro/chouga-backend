@@ -2,7 +2,6 @@ import { loadEnv, defineConfig } from '@medusajs/framework/utils'
 
 loadEnv(process.env.NODE_ENV || 'development', process.cwd())
 
-const isProduction = process.env.NODE_ENV === 'production'
 const databaseUrl = process.env.DATABASE_URL || process.env.POSTGRES_URL
 
 module.exports = defineConfig({
@@ -17,7 +16,7 @@ module.exports = defineConfig({
     }
   },
   admin: {
-    disabled: isProduction
+    disabled: true
   },
   plugins: []
 })
