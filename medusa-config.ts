@@ -9,9 +9,9 @@ module.exports = defineConfig({
   projectConfig: {
     databaseUrl: databaseUrl,
     http: {
-      storeCors: process.env.STORE_CORS || '*',
-      adminCors: process.env.ADMIN_CORS || '*',
-      authCors: process.env.AUTH_CORS || '*',
+      storeCors: process.env.STORE_CORS || '.*',
+      adminCors: process.env.ADMIN_CORS || '.*',
+      authCors: process.env.AUTH_CORS || '.*',
       jwtSecret: process.env.JWT_SECRET,
       cookieSecret: process.env.COOKIE_SECRET,
     }
