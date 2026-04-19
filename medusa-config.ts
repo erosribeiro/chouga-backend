@@ -3,19 +3,21 @@ import { loadEnv, defineConfig } from '@medusajs/framework/utils'
 loadEnv(process.env.NODE_ENV || 'development', process.cwd())
 
 const isProduction = process.env.NODE_ENV === 'production'
+const databaseUrl = process.env.DATABASE_URL || process.env.POSTGRES_URL
 
 module.exports = defineConfig({
   projectConfig: {
-    databaseUrl: process.env.DATABASE_URL,
+    databaseUrl: databaseUrl,
     http: {
-      storeCors: process.env.STORE_CORS || 'http://localhost:8000',
-      adminCors: isProduction ? '' : process.env.ADMIN_CORS || 'http://localhost:5173,http://localhost:9000',
-      authCors: process.env.AUTH_CORS || 'http://localhost:5173,http://localhost:9000,http://localhost:8000',
+      storeCors: process.env.STORE_CORS || '*',
+      adminCors: process.env.ADMIN_CORS || '*',
+      authCors: process.env.AUTH_CORS || '*',
       jwtSecret: process.env.JWT_SECRET,
       cookieSecret: process.env.COOKIE_SECRET,
     }
   },
   admin: {
-    disabled: isProduction && process.env.DISABLE_ADMIN === 'true',
-  }
+    disabled: false
+  },
+  plugins: []
 })
