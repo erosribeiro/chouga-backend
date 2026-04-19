@@ -17,7 +17,7 @@ module.exports = defineConfig({
     }
   },
   admin: {
-    disabled: false
+    disabled: isProduction
   },
   plugins: []
 })
