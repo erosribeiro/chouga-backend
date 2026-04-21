@@ -1,38 +1,37 @@
 {
-  "name": "chouga-backend",
-  "version": "0.0.1",
-  "description": "A starter for Medusa projects.",
-  "author": "Medusa (https://medusajs.com)",
-  "license": "MIT",
-  "keywords": [
-    "sqlite",
-    "postgres",
-    "typescript",
-    "ecommerce",
-    "headless",
-    "medusa"
-  ],
+  "name": "chouga-ecommerce",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "build": "echo 'Build skipped - using medusa CLI'",
-    "postinstall": "npx medusa db:migrate",
-    "start": "npx medusa start",
-    "dev": "npx medusa develop",
-    "test:integration:http": "TEST_TYPE=integration:http NODE_OPTIONS=--experimental-vm-modules jest --silent=false --runInBand --forceExit",
-    "test:integration:modules": "TEST_TYPE=integration:modules NODE_OPTIONS=--experimental-vm-modules jest --silent=false --runInBand --forceExit",
-    "test:unit": "TEST_TYPE=unit NODE_OPTIONS=--experimental-vm-modules jest --silent --runInBand --forceExit"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "@medusajs/cli": "2.13.6",
-    "@medusajs/framework": "2.13.6",
-    "@medusajs/medusa": "2.13.6"
+    "next": "15.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "@supabase/supabase-js": "^2.45.0",
+    "@supabase/ssr": "^0.5.0",
+    "lucide-react": "^0.460.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^2.5.0",
+    "zod": "^3.23.0",
+    "@hookform/resolvers": "^3.9.0",
+    "react-hook-form": "^7.53.0"
   },
   "devDependencies": {
-    "@types/node": "^20.12.11",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.6.2"
-  },
-  "engines": {
-    "node": "20.x"
-  },
-  "packageManager": "npm@11.12.1"
+    "typescript": "^5.6.0",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "tailwindcss": "^3.4.0",
+    "postcss": "^8.4.0",
+    "autoprefixer": "^10.4.0",
+    "tailwindcss-animate": "^1.0.7",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "15.1.0"
+  }
 }
