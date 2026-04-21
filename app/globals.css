@@ -3,31 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 5%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 5%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 5%;
-    --primary: 0 0% 5%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 5%;
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
-    --accent: 0 0% 96%;
-    --accent-foreground: 0 0% 5%;
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
-    --ring: 0 0% 5%;
-    --radius: 0px;
-  }
-}
-
-@layer base {
   * {
     @apply border-border;
   }
@@ -39,9 +14,60 @@
 
 @layer utilities {
   .font-heading {
-    font-family: var(--font-heading);
+    font-family: 'Archivo', sans-serif;
   }
   .font-mono {
-    font-family: var(--font-mono);
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center bg-primary text-primary-foreground px-6 py-3 text-sm font-medium uppercase tracking-wider transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50;
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center justify-center bg-secondary text-secondary-foreground px-6 py-3 text-sm font-medium uppercase tracking-wider transition-colors hover:bg-secondary/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50;
+  }
+  
+  .btn-outline {
+    @apply inline-flex items-center justify-center border border-input bg-transparent px-6 py-3 text-sm font-medium uppercase tracking-wider transition-colors hover:bg-secondary hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50;
+  }
+  
+  .input-field {
+    @apply flex h-12 w-full border border-input bg-transparent px-4 py-2 text-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  
+  .card-product {
+    @apply group block border border-transparent hover:border-border transition-all duration-200;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 40%;
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 0%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 0 0% 0%;
+    --radius: 0px;
+    --section-bg: 0 0% 96%;
   }
 }

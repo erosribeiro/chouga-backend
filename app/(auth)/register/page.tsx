@@ -1,4 +1,5 @@
 import { redirect } from 'next/navigation'
+import Link from 'next/link'
 import { createClient } from '@/lib/supabase/server'
 
 export default async function RegisterPage() {
@@ -10,15 +11,20 @@ export default async function RegisterPage() {
   }
 
   return (
-    <main className="container mx-auto px-4 py-20">
-      <div className="max-w-md mx-auto">
-        <h1 className="font-heading text-4xl font-bold uppercase tracking-tighter text-center mb-12">
-          Criar Conta
-        </h1>
-        
+    <div className="flex-1 flex items-center justify-center py-16 px-4">
+      <div className="w-full max-w-md">
+        <div className="text-center mb-10">
+          <h1 className="font-heading text-3xl font-bold uppercase tracking-tighter mb-2">
+            Criar Conta
+          </h1>
+          <p className="text-muted-foreground">
+            Junte-se à tribo Chouga
+          </p>
+        </div>
+
         <form action="/auth/signup" method="post" className="space-y-6">
           <div>
-            <label htmlFor="full_name" className="block text-sm uppercase tracking-wide mb-2">
+            <label htmlFor="full_name" className="block text-sm font-medium uppercase tracking-wide mb-2">
               Nome Completo
             </label>
             <input
@@ -26,25 +32,29 @@ export default async function RegisterPage() {
               name="full_name"
               type="text"
               required
-              className="w-full px-4 py-3 border border-border bg-transparent focus:border-chouga-red focus:outline-none transition-colors"
+              autoComplete="name"
+              className="input-field"
+              placeholder="Seu nome"
             />
           </div>
 
           <div>
-            <label htmlFor="email" className="block text-sm uppercase tracking-wide mb-2">
-              Email
+            <label htmlFor="email" className="block text-sm font-medium uppercase tracking-wide mb-2">
+              E-mail
             </label>
             <input
               id="email"
               name="email"
               type="email"
               required
-              className="w-full px-4 py-3 border border-border bg-transparent focus:border-chouga-red focus:outline-none transition-colors"
+              autoComplete="email"
+              className="input-field"
+              placeholder="seu@email.com"
             />
           </div>
-          
+
           <div>
-            <label htmlFor="password" className="block text-sm uppercase tracking-wide mb-2">
+            <label htmlFor="password" className="block text-sm font-medium uppercase tracking-wide mb-2">
               Senha
             </label>
             <input
@@ -53,25 +63,26 @@ export default async function RegisterPage() {
               type="password"
               required
               minLength={6}
-              className="w-full px-4 py-3 border border-border bg-transparent focus:border-chouga-red focus:outline-none transition-colors"
+              autoComplete="new-password"
+              className="input-field"
+              placeholder="Mínimo 6 caracteres"
             />
           </div>
-          
-          <button
-            type="submit"
-            className="w-full py-4 bg-chouga-black text-white font-heading uppercase tracking-wide hover:bg-chouga-red transition-colors"
-          >
+
+          <button type="submit" className="btn-primary w-full">
             Criar Conta
           </button>
         </form>
-        
-        <p className="mt-8 text-center text-sm text-muted-foreground">
-          Já tem conta?{' '}
-          <a href="/login" className="uppercase tracking-wide hover:text-chouga-red transition-colors">
-            Fazer login
-          </a>
-        </p>
+
+        <div className="mt-8 text-center text-sm text-muted-foreground">
+          <p>
+            Já tem conta?{' '}
+            <Link href="/login" className="font-medium uppercase tracking-wide hover:text-foreground transition-colors">
+              Fazer login
+            </Link>
+          </p>
+        </div>
       </div>
-    </main>
+    </div>
   )
 }

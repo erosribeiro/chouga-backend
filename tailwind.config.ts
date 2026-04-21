@@ -11,62 +11,74 @@ module.exports = {
   theme: {
     container: {
       center: true,
-      padding: '2rem',
+      padding: '1.5rem',
       screens: {
-        '2xl': '1400px',
+        '2xl': '1536px',
+        '3xl': '1920px',
       },
     },
     extend: {
       colors: {
-        border: 'hsl(var(--border))',
-        input: 'hsl(var(--input))',
-        ring: 'hsl(var(--ring))',
-        background: 'hsl(var(--background))',
-        foreground: 'hsl(var(--foreground))',
+        background: '#FFFFFF',
+        foreground: '#000000',
+        'section-bg': '#F5F5F5',
+        border: '#E5E5E5',
+        input: '#E5E5E5',
+        ring: '#000000',
         primary: {
-          DEFAULT: 'hsl(var(--primary))',
-          foreground: 'hsl(var(--primary-foreground))',
+          DEFAULT: '#000000',
+          foreground: '#FFFFFF',
         },
         secondary: {
-          DEFAULT: 'hsl(var(--secondary))',
-          foreground: 'hsl(var(--secondary-foreground))',
+          DEFAULT: '#F5F5F5',
+          foreground: '#000000',
         },
         destructive: {
-          DEFAULT: 'hsl(var(--destructive))',
-          foreground: 'hsl(var(--destructive-foreground))',
+          DEFAULT: '#FF3B30',
+          foreground: '#FFFFFF',
         },
         muted: {
-          DEFAULT: 'hsl(var(--muted))',
-          foreground: 'hsl(var(--muted-foreground))',
+          DEFAULT: '#F5F5F5',
+          foreground: '#666666',
         },
         accent: {
-          DEFAULT: 'hsl(var(--accent))',
-          foreground: 'hsl(var(--accent-foreground))',
+          DEFAULT: '#F5F5F5',
+          foreground: '#000000',
         },
         popover: {
-          DEFAULT: 'hsl(var(--popover))',
-          foreground: 'hsl(var(--popover-foreground))',
+          DEFAULT: '#FFFFFF',
+          foreground: '#000000',
         },
         card: {
-          DEFAULT: 'hsl(var(--card))',
-          foreground: 'hsl(var(--card-foreground))',
+          DEFAULT: '#FFFFFF',
+          foreground: '#000000',
         },
         chouga: {
           red: '#FF3B30',
-          black: '#0A0A0A',
-          white: '#FAFAFA',
-          gray: '#1A1A1A',
+          black: '#000000',
+          white: '#FFFFFF',
+          gray: '#F5F5F5',
         },
       },
       borderRadius: {
-        lg: 'var(--radius)',
-        md: 'calc(var(--radius) - 2px)',
-        sm: 'calc(var(--radius) - 4px)',
+        none: '0',
+        sm: '2px',
+        DEFAULT: '4px',
+        md: '6px',
+        lg: '8px',
       },
       fontFamily: {
-        sans: ['var(--font-inter)', ...fontFamily.sans],
-        heading: ['var(--font-heading)', ...fontFamily.sans],
-        mono: ['var(--font-mono)', ...fontFamily.mono],
+        sans: ['Inter', 'sans-serif'],
+        heading: ['Archivo', 'sans-serif'],
+        mono: ['JetBrains Mono', 'monospace'],
+      },
+      fontSize: {
+        'display': ['3.5rem', { lineHeight: '1', letterSpacing: '-0.02em', fontWeight: '700' }],
+        'display-sm': ['2.5rem', { lineHeight: '1.1', letterSpacing: '-0.01em', fontWeight: '700' }],
+      },
+      spacing: {
+        '18': '4.5rem',
+        '88': '22rem',
       },
       keyframes: {
         'accordion-down': {
@@ -81,6 +93,9 @@ module.exports = {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+      },
+      aspectRatio: {
+        'product': '3 / 4',
       },
     },
   },

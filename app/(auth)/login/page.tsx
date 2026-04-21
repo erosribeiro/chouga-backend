@@ -1,4 +1,5 @@
 import { redirect } from 'next/navigation'
+import Link from 'next/link'
 import { createClient } from '@/lib/supabase/server'
 
 export default async function LoginPage() {
@@ -10,28 +11,35 @@ export default async function LoginPage() {
   }
 
   return (
-    <main className="container mx-auto px-4 py-20">
-      <div className="max-w-md mx-auto">
-        <h1 className="font-heading text-4xl font-bold uppercase tracking-tighter text-center mb-12">
-          Login
-        </h1>
-        
+    <div className="flex-1 flex items-center justify-center py-16 px-4">
+      <div className="w-full max-w-md">
+        <div className="text-center mb-10">
+          <h1 className="font-heading text-3xl font-bold uppercase tracking-tighter mb-2">
+            Login
+          </h1>
+          <p className="text-muted-foreground">
+            Acesse sua conta Chouga
+          </p>
+        </div>
+
         <form action="/auth/signin" method="post" className="space-y-6">
           <div>
-            <label htmlFor="email" className="block text-sm uppercase tracking-wide mb-2">
-              Email
+            <label htmlFor="email" className="block text-sm font-medium uppercase tracking-wide mb-2">
+              E-mail
             </label>
             <input
               id="email"
               name="email"
               type="email"
               required
-              className="w-full px-4 py-3 border border-border bg-transparent focus:border-chouga-red focus:outline-none transition-colors"
+              autoComplete="email"
+              className="input-field"
+              placeholder="seu@email.com"
             />
           </div>
-          
+
           <div>
-            <label htmlFor="password" className="block text-sm uppercase tracking-wide mb-2">
+            <label htmlFor="password" className="block text-sm font-medium uppercase tracking-wide mb-2">
               Senha
             </label>
             <input
@@ -39,25 +47,25 @@ export default async function LoginPage() {
               name="password"
               type="password"
               required
-              className="w-full px-4 py-3 border border-border bg-transparent focus:border-chouga-red focus:outline-none transition-colors"
+              autoComplete="current-password"
+              className="input-field"
             />
           </div>
-          
-          <button
-            type="submit"
-            className="w-full py-4 bg-chouga-black text-white font-heading uppercase tracking-wide hover:bg-chouga-red transition-colors"
-          >
+
+          <button type="submit" className="btn-primary w-full">
             Entrar
           </button>
         </form>
-        
-        <p className="mt-8 text-center text-sm text-muted-foreground">
-          Não tem conta?{' '}
-          <a href="/register" className="uppercase tracking-wide hover:text-chouga-red transition-colors">
-            Criar conta
-          </a>
-        </p>
+
+        <div className="mt-8 text-center text-sm text-muted-foreground">
+          <p>
+            Não tem conta?{' '}
+            <Link href="/register" className="font-medium uppercase tracking-wide hover:text-foreground transition-colors">
+              Criar conta
+            </Link>
+          </p>
+        </div>
       </div>
-    </main>
+    </div>
   )
 }
